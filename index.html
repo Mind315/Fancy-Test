@@ -6,111 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+        <link rel="stylesheet" href="style.css" />
         <title>FancyBox Test</title>
-        <style>
-            .wrapper {
-                display: flex;
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-            h1 {
-                text-align: center;
-                font-family: sans-serif;
-                font-size: 30px;
-            }
-            #dialog-content {
-                max-width: 40%;
-            }
-            .fancy-modal-btn {
-                background-color: cornflowerblue;
-                padding: 10px 20px;
-                border-radius: 4px;
-                cursor: pointer;
-            }
-            .fancy-modal-btn:hover {
-                background-color: rgb(123, 166, 245);
-            }
-
-            a[data-fancybox] img {
-                cursor: zoom-in;
-            }
-
-            .fancybox__container {
-                --carousel-button-bg: rgb(0 0 0 / 44%);
-
-                --carousel-button-svg-width: 24px;
-                --carousel-button-svg-height: 24px;
-
-                --carousel-button-svg-stroke-width: 2.5;
-                --carousel-button-svg-filter: none;
-            }
-
-            .fancybox__nav {
-                --carousel-button-svg-width: 22px;
-                --carousel-button-svg-height: 22px;
-
-                --carousel-button-svg-stroke-width: 3;
-            }
-
-            .fancybox__nav .carousel__button.is-prev {
-                left: 30px;
-            }
-
-            .fancybox__nav .carousel__button.is-next {
-                right: 30px;
-            }
-
-            .carousel__button.is-close {
-                top: 30px;
-                right: 30px;
-            }
-
-            .fancybox__slide {
-                padding: 0;
-            }
-
-            .fancybox__thumbs {
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                z-index: 10;
-            }
-
-            .fancybox__thumbs .carousel__slide {
-                padding: 20px 10px;
-                overflow: visible;
-            }
-
-            .fancybox__thumb {
-                border-radius: 6px;
-                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.26);
-            }
-
-            .is-nav-selected .fancybox__thumb {
-                transform: scale(1.25);
-            }
-
-            .is-nav-selected .fancybox__thumb::after {
-                display: none;
-            }
-            .wrapper > a + a {
-                padding-left: 10px;
-            }
-
-            @media screen and (max-width: 800px) {
-                .wrapper > a {
-                    max-width: 35%;
-                }
-                .wrapper img {
-                    width: 100%;
-                    object-fit: cover;
-                }
-                #dialog-content {
-                    max-width: 85%;
-                }
-            }
-        </style>
     </head>
     <body>
         <h1>Fancy Box</h1>
@@ -144,6 +41,7 @@
             <input type="text" placeholder="i`m input" />
         </div>
 
+        <h1>Image with BG</h1>
         <div class="wrapper">
             <a data-fancybox="gallery-bg" href="https://lipsum.app/id/12/1600x1200">
                 <img class="rounded" src="https://lipsum.app/id/12/200x150" />
@@ -155,6 +53,80 @@
                 <img class="rounded" src="https://lipsum.app/id/11/200x150" />
             </a>
         </div>
+
+        <h1>Carousel-Card</h1>
+
+        <div id="logoCarousel" class="carousel">
+            <div class="carousel__image-container">
+                <ul>
+                    <li data-for="0" class="is-active">
+                        <h3 class="">CArd img 1</h3>
+                        <img alt="" src="https://lipsum.app/id/90/460x320" />
+                    </li>
+                    <li data-for="1">
+                        <h3 class="">CArd img 2</h3>
+                        <img alt="" src="https://lipsum.app/id/91/460x320" />
+                    </li>
+                    <li data-for="2">
+                        <h3 class="">CArd img 333</h3>
+                        <img alt="" src="https://lipsum.app/id/92/460x320" />
+                    </li>
+                    <li data-for="3">
+                        <h3 class="">CArd img 145</h3>
+                        <img alt="" src="https://lipsum.app/id/93/460x320" />
+                    </li>
+                </ul>
+            </div>
+            <div class="carousel__viewport">
+                <div class="carousel__track">
+                    <div class="carousel__slide">
+                        <h3 class="">Card title 1</h3>
+                        <p class="text-lg leading-8">
+                            sus vel metus.sus vel metus.Dolor sit amet, consectetur adipiscing esus vel metus.sus vel metus.sus vel
+                            metus.lit. Ut semper, justo eget vehicula vestibulum, enim enim suscipit lectus, et sagittis nibh risus vel
+                            metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </p>
+                    </div>
+                    <div class="carousel__slide">
+                        <h3 class="">Card title 2</h3>
+                        <p class="text-lg leading-8">
+                            Vivamus massa justo, sagittis non viverra sed, sodales non nisi. Nunc semper, massa a aliquet dictum, enim nisi
+                            malesuada orci, et elementum lectus tursus vel metus.sus vel metus.sus vel metus.sus vel metus.sus vel metus.pis
+                            et velit.
+                        </p>
+                    </div>
+                    <div class="carousel__slide">
+                        <h3 class="">Card title 333</h3>
+                        <p class="text-lg leading-8">
+                            Duis dolor orci, viverra ut finibus sesus vel metus.sus vel metus.sus vel metus.d, aliquet vitae tortor. Proin
+                            sodales ipsum ac ipsum hendrerit tempus. Nunc nec nibh nibh. Aenean consequat auctor posuere.
+                        </p>
+                    </div>
+                    <div class="carousel__slide">
+                        <h3 class="">Card title 45</h3>
+                        <p class="text-lg leading-8">
+                            Duis dignissim magna in mattis pulsus vel metus.sus vel metus.sus vel metus.sus vel metus.vinar. Sed blandit
+                            nibh quis arcu ornare,sus vel metus.sus vel metus.sus vel metus. sit amet fermentum nisi rhoncus.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <ul id="logoBar" class="">
+            <li class="py-8 text-center">
+                <a class="cursor-pointer is-active" data-for="0">Card 1</a>
+            </li>
+            <li class="py-8 text-center">
+                <a class="cursor-pointer" data-for="1">Card 2</a>
+            </li>
+            <li class="py-8 text-center">
+                <a class="cursor-pointer" data-for="2">Card 333</a>
+            </li>
+            <li class="py-8 text-center">
+                <a class="cursor-pointer" data-for="3">Card345</a>
+            </li>
+        </ul>
         <script>
             // Customization
             Fancybox.bind('[data-fancybox="gallery"]', {
@@ -182,6 +154,35 @@
                 Thumbs: {
                     minScreenHeight: 0,
                 },
+            });
+
+            // Initialise Carousel
+            const logoCarousel = new Carousel(document.querySelector("#logoCarousel"), {
+                friction: 0.83,
+                Dots: false,
+                on: {
+                    change: (carousel, to) => {
+                        // Clear active elements
+                        document.querySelectorAll("#logoCarousel .is-active, #logoBar .is-active").forEach((el) => {
+                            el.classList.remove("is-active");
+                        });
+
+                        // Mark current elements as active
+                        document.querySelectorAll(`#logoCarousel [data-for="${to}"], #logoBar [data-for="${to}"]`).forEach((el) => {
+                            el.classList.add("is-active");
+                        });
+                    },
+                },
+            });
+
+            // Make links clickable
+            document.getElementById("logoBar").addEventListener("click", (event) => {
+                const index = event.target.dataset.for || -1;
+
+                if (index > -1) {
+                    event.preventDefault();
+                    logoCarousel.slideTo(index);
+                }
             });
         </script>
     </body>
