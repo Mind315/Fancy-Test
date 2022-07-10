@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+        <title>FancyBox Test</title>
+        <style>
+            .wrapper {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            h1 {
+                text-align: center;
+                font-family: sans-serif;
+                font-size: 30px;
+            }
+            #dialog-content {
+                max-width: 40%;
+            }
+            .fancy-modal-btn {
+                background-color: cornflowerblue;
+                padding: 10px 20px;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            .fancy-modal-btn:hover {
+                background-color: rgb(123, 166, 245);
+            }
+
+            a[data-fancybox] img {
+                cursor: zoom-in;
+            }
+
+            .fancybox__container {
+                --carousel-button-bg: rgb(0 0 0 / 44%);
+
+                --carousel-button-svg-width: 24px;
+                --carousel-button-svg-height: 24px;
+
+                --carousel-button-svg-stroke-width: 2.5;
+                --carousel-button-svg-filter: none;
+            }
+
+            .fancybox__nav {
+                --carousel-button-svg-width: 22px;
+                --carousel-button-svg-height: 22px;
+
+                --carousel-button-svg-stroke-width: 3;
+            }
+
+            .fancybox__nav .carousel__button.is-prev {
+                left: 30px;
+            }
+
+            .fancybox__nav .carousel__button.is-next {
+                right: 30px;
+            }
+
+            .carousel__button.is-close {
+                top: 30px;
+                right: 30px;
+            }
+
+            .fancybox__slide {
+                padding: 0;
+            }
+
+            .fancybox__thumbs {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 10;
+            }
+
+            .fancybox__thumbs .carousel__slide {
+                padding: 20px 10px;
+                overflow: visible;
+            }
+
+            .fancybox__thumb {
+                border-radius: 6px;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.26);
+            }
+
+            .is-nav-selected .fancybox__thumb {
+                transform: scale(1.25);
+            }
+
+            .is-nav-selected .fancybox__thumb::after {
+                display: none;
+            }
+            .wrapper > a + a {
+                padding-left: 10px;
+            }
+
+            @media screen and (max-width: 800px) {
+                .wrapper > a {
+                    max-width: 35%;
+                }
+                .wrapper img {
+                    width: 100%;
+                    object-fit: cover;
+                }
+                #dialog-content {
+                    max-width: 85%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Fancy Box</h1>
+        <div class="wrapper">
+            <a href="http://placeimg.com/640/480/animals?t=1657471712579" data-fancybox="gallery" data-caption="image 1">
+                <img src="http://placeimg.com/640/480/animals?t=1657471712579" width="300" height="200" />
+            </a>
+
+            <a href="http://placeimg.com/640/480/animals?t=1657471728715" data-fancybox="gallery" data-caption="image 2"
+                ><img src="http://placeimg.com/640/480/animals?t=1657471728715" width="300" height="200" alt="" />
+            </a>
+            <a href="http://placeimg.com/640/480/animals?t=1657471728725" data-fancybox="gallery" data-caption="image 3"
+                ><img src="http://placeimg.com/640/480/animals?t=1657471728725" width="300" height="200" alt="" />
+            </a>
+            <a href="http://placeimg.com/640/480/animals?t=1657471728711" data-fancybox="gallery" data-caption="image 4"
+                ><img src="http://placeimg.com/640/480/animals?t=1657471728711" width="300" height="200" alt="" />
+            </a>
+            <a href="http://placeimg.com/640/480/animals?t=1657471728719" data-fancybox="gallery" data-caption="image 5"
+                ><img src="http://placeimg.com/640/480/animals?t=1657471728719" width="300" height="200" alt="" />
+            </a>
+        </div>
+
+        <button class="fancy-modal-btn" data-fancybox data-src="#dialog-content">Open Modal</button>
+
+        <div id="dialog-content" style="display: none">
+            <h2>i`m Fancy Modal</h2>
+            <p class="modal-text">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos velit blanditiis dolorum ullam cumque suscipit sapiente
+                aliquid voluptatum illo magnam nulla, facere quam sunt quaerat nihil aliquam? Voluptatem, odio asperiores!
+            </p>
+            <input type="text" placeholder="i`m input" />
+        </div>
+
+        <div class="wrapper">
+            <a data-fancybox="gallery-bg" href="https://lipsum.app/id/12/1600x1200">
+                <img class="rounded" src="https://lipsum.app/id/12/200x150" />
+            </a>
+            <a data-fancybox="gallery-bg" href="https://lipsum.app/id/13/1600x1200">
+                <img class="rounded" src="https://lipsum.app/id/13/200x150" />
+            </a>
+            <a data-fancybox="gallery-bg" href="https://lipsum.app/id/11/1600x1200">
+                <img class="rounded" src="https://lipsum.app/id/11/200x150" />
+            </a>
+        </div>
+        <script>
+            // Customization
+            Fancybox.bind('[data-fancybox="gallery"]', {
+                //off infinity slider
+                infinite: false,
+            });
+
+            Fancybox.bind('[data-fancybox="gallery-bg"]', {
+                Toolbar: false,
+                animated: true,
+                dragToClose: false,
+
+                showClass: false,
+                hideClass: false,
+
+                closeButton: "top",
+
+                Image: {
+                    click: "close",
+                    wheel: "slide",
+                    zoom: false,
+                    fit: "cover",
+                },
+
+                Thumbs: {
+                    minScreenHeight: 0,
+                },
+            });
+        </script>
+    </body>
+</html>
